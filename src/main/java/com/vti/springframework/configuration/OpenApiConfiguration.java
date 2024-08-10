@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         info = @Info(
                 title = "Blog Application REST APIs",
                 description = "Blog Application REST APIs Documentation",
-                termsOfService = "https://github.com/khoa-omega/blog-app",
+                termsOfService = "https://github.com/aginCoder/Spring_Framework/tree/blog-app",
                 contact = @Contact(
                         name = "Phạm Gia Ân",
                         url = "https://github.com/aginCoder",
@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         ),
         externalDocs = @ExternalDocumentation(
                 description = "Blog Application Github",
-                url = "https://github.com/khoa-omega/blog-app"
+                url = "https://github.com/aginCoder/Spring_Framework/tree/blog-app"
         )
 )
 public class OpenApiConfiguration {
