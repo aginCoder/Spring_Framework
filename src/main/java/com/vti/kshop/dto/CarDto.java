@@ -14,4 +14,6 @@ public class CarDto {
     private String customerName;
     private String catalog;
     private String carMaker;
+
+
 }
