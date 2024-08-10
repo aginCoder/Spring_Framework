@@ -18,18 +18,16 @@ import java.util.LinkedHashMap;
 public class ErrorHandler extends ResponseEntityExceptionHandler {
     private String getMessage(String key, Object... args) {
         var locale = LocaleContextHolder.getLocale();
-        return getMessageSource()
-                .getMessage(key, args, locale);
+        return getMessageSource().getMessage(key, args, locale);
     }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException exception,
-            HttpHeaders headers,
-            HttpStatusCode status,
-            WebRequest request
-    ){
+            HttpHeaders headers, HttpStatusCode status, WebRequest request
+    ) {
         var message = getMessage("MethodArgumentNotValidException.message");
-        var errors = new LinkedHashMap<String, String >();
+        var errors = new LinkedHashMap<String, String>();
         for (var error : exception.getFieldErrors()) {
             var key = error.getField();
             var value = error.getDefaultMessage();
@@ -42,15 +40,15 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolation(
             ConstraintViolationException exception
-    ){
+    ) {
         var message = getMessage("ConstraintViolationException.message");
-        var errors = new LinkedHashMap<String, String >();
+        var errors = new LinkedHashMap<String, String>();
         for (var constraint : exception.getConstraintViolations()) {
             var key = constraint.getPropertyPath().toString();
             var value = constraint.getMessage();
             errors.put(key, value);
         }
-        var reponse = new ErrorResponse(message, errors);
-        return new ResponseEntity<>(reponse, HttpStatus.BAD_REQUEST);
+        var response = new ErrorResponse(message, errors);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

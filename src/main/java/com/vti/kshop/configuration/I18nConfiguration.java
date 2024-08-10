@@ -1,6 +1,5 @@
 package com.vti.kshop.configuration;
 
-import org.modelmapper.internal.bytebuddy.utility.nullability.MaybeNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -12,7 +11,7 @@ import java.util.Locale;
 @Configuration
 public class I18nConfiguration {
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         var resolver = new AcceptHeaderLocaleResolver();
         var locales = Arrays.asList(
                 Locale.ENGLISH,

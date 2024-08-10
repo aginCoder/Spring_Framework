@@ -2,6 +2,7 @@ package com.vti.kshop.form;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,11 +29,11 @@ public class AccessoryCreateForm {
     @Length(max = 50, message = "Accessory repair status has max 50 characters")
     private String repairStatus;
 
-    @NotBlank(message = "Car license plate status must not be blank")
+    @NotBlank(message = "Car license plate must not be blank")
     @Length(max = 10, message = "Car license plate has max 10 characters")
     private String licensePlate;
 
     @NotNull(message = "Car repair date must not be null")
-    @PositiveOrZero(message = "Car repair date must be positive or zero")
+    @PastOrPresent(message = "Car repair date must be past or present")
     private LocalDate repairDate;
 }

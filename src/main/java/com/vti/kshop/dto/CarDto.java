@@ -12,7 +12,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Getter
 @Setter
-public class CarDto extends RepresentationModel<CarDto>{
+public class CarDto extends RepresentationModel<CarDto> {
     private Long id;
     private String licensePlate;
     private LocalDate repairDate;

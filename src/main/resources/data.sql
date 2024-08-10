@@ -1,5 +1,13 @@
-INSERT INTO post (id, title            , content                           , description             , created_at       , updated_at       )
-VALUES           (1 ,'Spring Framework', 'Learn Spring Framework with Khoa', 'Learn Spring Framework', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO car (license_plate, repair_date , customer_name           , catalog          , car_maker)
+VALUES          ('29V7-65366' , '2003-11-16', 'Thái Hoàng Quân', 'Bảo dưỡng lần 1', 'Honda'  ),
+                ('29H1-15840' , '2023-05-19', 'Đỗ Văn Vũ'           , 'Bảo dưỡng lần 8', 'Vinfast'),
+                ('29E1-88888' , '2019-04-07', 'Nguyễn Trần Khánh Vi'    , 'Bảo dưỡng lần 2', 'BMW'    ),
+                ('29B1-66666' , '2015-07-29', 'Bùi Tuyết Ngân'           , 'Bảo dưỡng lần 6', 'Nissan' ),
+                ('29V7-52143' , '2021-03-05', 'Phạm Gia Ân'       , 'Bảo dưỡng lần 4', 'Toyota' );
 
-INSERT INTO comment (id, name             , email              , body              , post_id, created_at       , updated_at       )
-VALUES              (1 , 'Phạm Gia Ân', 'an,pg@gmail.com', 'Bài viết rất hay', 1      , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO accessory (license_plate, repair_date , name         , price  , status_damaged, repair_status)
+VALUES                ('29V7-52143' , '2021-03-05', 'Cần gạt mưa', 999000 , 'Bị gãy'      , 'Thay mới'   ),
+                      ('29V7-65366' , '2003-11-16', 'Lọc gió'    , 199000 , 'Bị bụi bẩn'  , 'Làm sạch'   ),
+                      ('29V7-65366' , '2003-11-16', 'Lốp xe'     , 2000000, 'Bị thủng'    , 'Thay lốp'   ),
+                      ('29V7-65366' , '2003-11-16', 'Bình ắc quy', 1465000, 'Bị hết điện' , 'Sạc điện'   ),
+                      ('29V7-65366' , '2003-11-16', 'Đèn xe'     , 369000 , 'Bị vỡ'       , 'Thay đèn'   );
