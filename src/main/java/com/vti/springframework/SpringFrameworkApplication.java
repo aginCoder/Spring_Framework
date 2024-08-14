@@ -12,7 +12,6 @@ public class SpringFrameworkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringFrameworkApplication.class, args);
 	}
-
 	@Bean
 	public WebMvcConfigurer webMvcConfigurer() {
 		return new WebMvcConfigurer() {
