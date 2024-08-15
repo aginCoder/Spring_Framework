@@ -1,6 +1,13 @@
 package com.vti.springframework.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,12 +18,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", length = 50, nullable = false)
@@ -28,11 +34,11 @@ public class User {
     @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "password", length = 50, nullable = false)
+    @Column(name = "password", length = 100, nullable = false)
     private String password;
 
+    @Column(name = "role", nullable = false)
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "role", length = 50, nullable = false)
     private Role role;
 
     @Column(name = "created_at", nullable = false, updatable = false)

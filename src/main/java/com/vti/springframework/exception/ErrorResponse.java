@@ -11,7 +11,7 @@ import java.util.Map;
 public class ErrorResponse {
     private String timestamp;
     private String message;
-    private Map<String , String> errors;
+    private Map<String, String> errors;
 
     public ErrorResponse(String message, Map<String, String> errors) {
         this.timestamp = LocalDateTime.now().toString();

@@ -3,13 +3,12 @@ package com.vti.springframework.dto;
 import com.vti.springframework.entity.User;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class UserDto extends RepresentationModel<UserDto> {
+public class UserDto {
     private Long id;
     private String name;
     private String username;
