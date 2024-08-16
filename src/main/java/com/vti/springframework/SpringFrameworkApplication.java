@@ -1,5 +1,9 @@
 package com.vti.springframework;
 
+import com.vti.springframework.form.UserCreateForm;
+import com.vti.springframework.service.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -7,11 +11,14 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class SpringFrameworkApplication {
+@AllArgsConstructor
+public class SpringFrameworkApplication implements CommandLineRunner {
+	private UserService userService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringFrameworkApplication.class, args);
 	}
+
 	@Bean
 	public WebMvcConfigurer webMvcConfigurer() {
 		return new WebMvcConfigurer() {
@@ -24,4 +31,14 @@ public class SpringFrameworkApplication {
 		};
 	}
 
+	@Override
+	public void run(String... args) {
+		var form = new UserCreateForm();
+		form.setName("Phạm Gia Ân");
+		form.setUsername("an.pg");
+		form.setEmail("an.pg@gmail.com");
+		form.setPassword("123456");
+		form.setRole("ADMIN");
+		userService.create(form);
+	}
 }
