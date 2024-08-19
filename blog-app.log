@@ -46,3 +46,6 @@
 2024-08-16 21:18:12.352 [restartedMain] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [2024-08-16T21:18:12.337836]
 2024-08-16 21:18:12.352 [restartedMain] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [an.pg]
 2024-08-16 21:18:12.375 [restartedMain] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-16 21:29:58.878 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-16 21:29:58.878 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-16 21:29:58.878 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
