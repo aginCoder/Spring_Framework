@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDto create(UserCreateForm form) {
         var user = modelMapper.map(form, User.class);
+//        user.setRole(User.Role.EMPLOYEE);
         var encodedPassword = passwordEncoder.encode(form.getPassword());
         user.setPassword(encodedPassword);
         var savedUser = userRepository.save(user);
