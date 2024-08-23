@@ -1,81 +1,104 @@
-2024-08-21 20:53:32.800 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2024-08-21 20:53:32.831 [main] INFO  com.vti.kshop.KShopApplication - Starting KShopApplication using Java 22.0.2 with PID 19056 (D:\VTI\Railway85\Java Advanced\spring_framework\target\classes started by HOME in D:\VTI\Railway85\Java Advanced\spring_framework)
-2024-08-21 20:53:32.835 [main] INFO  com.vti.kshop.KShopApplication - No active profile set, falling back to 1 default profile: "default"
-2024-08-21 20:53:33.645 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-21 20:53:33.697 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 3 JPA repository interfaces.
-2024-08-21 20:53:34.275 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-08-21 20:53:34.287 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-08-21 20:53:34.289 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2024-08-21 20:53:34.290 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-21 20:53:34.346 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-08-21 20:53:34.348 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1479 ms
-2024-08-21 20:53:34.546 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-21 20:53:34.623 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-08-21 20:53:34.659 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-08-21 20:53:34.948 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-21 20:53:34.977 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-08-21 20:53:35.325 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37c74e4e
-2024-08-21 20:53:35.326 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-08-21 20:53:36.182 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-21 20:53:36.194 [main] DEBUG org.hibernate.SQL - alter table accessory drop foreign key FK38r75kgl2h9x7fcfwd604v7el
-2024-08-21 20:53:36.204 [main] DEBUG org.hibernate.SQL - drop table if exists accessory
-2024-08-21 20:53:36.209 [main] DEBUG org.hibernate.SQL - drop table if exists car
-2024-08-21 20:53:36.213 [main] DEBUG org.hibernate.SQL - drop table if exists `user`
-2024-08-21 20:53:36.224 [main] DEBUG org.hibernate.SQL - create table accessory (repair_date date not null, id bigint not null auto_increment, price bigint not null, license_plate varchar(10) not null, name varchar(50) not null, repair_status varchar(50) not null, status_damaged varchar(50) not null, primary key (id)) engine=InnoDB
-2024-08-21 20:53:36.232 [main] DEBUG org.hibernate.SQL - create table car (repair_date date not null, id bigint not null auto_increment, license_plate varchar(10) not null, car_maker varchar(50) not null, catalog varchar(50) not null, customer_name varchar(50) not null, primary key (id)) engine=InnoDB
-2024-08-21 20:53:36.240 [main] DEBUG org.hibernate.SQL - create table `user` (created_at datetime(6) not null, id bigint not null auto_increment, updated_at datetime(6) not null, email varchar(50) not null, name varchar(50) not null, username varchar(50) not null, password varchar(100) not null, role enum ('ADMIN','EMPLOYEE','MANAGER') not null, primary key (id)) engine=InnoDB
-2024-08-21 20:53:36.249 [main] DEBUG org.hibernate.SQL - alter table car add constraint UKax84150jtj5n6kwkebpgr4oxk unique (license_plate, repair_date)
-2024-08-21 20:53:36.258 [main] DEBUG org.hibernate.SQL - alter table `user` add constraint UKhl4ga9r00rh51mdaf20hmnslt unique (email)
-2024-08-21 20:53:36.268 [main] DEBUG org.hibernate.SQL - alter table `user` add constraint UK5c856itaihtmi69ni04cmpc4m unique (username)
-2024-08-21 20:53:36.277 [main] DEBUG org.hibernate.SQL - alter table accessory add constraint FK38r75kgl2h9x7fcfwd604v7el foreign key (license_plate, repair_date) references car(license_plate, repair_date) on update cascade on delete cascade
-2024-08-21 20:53:36.308 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-21 20:53:36.791 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-21 20:53:36.904 [main] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
-2024-08-21 20:53:37.486 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2024-08-21 20:53:37.506 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2024-08-21 20:53:37.516 [main] INFO  com.vti.kshop.KShopApplication - Started KShopApplication in 4.979 seconds (process running for 5.958)
-2024-08-21 20:53:42.146 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-21 20:53:42.146 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-08-21 20:53:42.148 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-08-21 20:53:42.399 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into `user` (created_at,email,name,password,role,updated_at,username) values (?,?,?,?,?,?,?)
-2024-08-21 20:53:42.406 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:TIMESTAMP) <- [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:42.406 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [anan@gmail.com]
-2024-08-21 20:53:42.406 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [Phạm Gia Ân]
-2024-08-21 20:53:42.407 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [$2a$10$gaDcOWlZTgHL6njkwOdVhuJhSV68zqnFHSw2gRV3qvUka7CUySfxa]
-2024-08-21 20:53:42.407 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:ENUM) <- [EMPLOYEE]
-2024-08-21 20:53:42.407 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:42.407 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [an2505]
-2024-08-21 20:53:42.429 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
-2024-08-21 20:53:48.475 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
-2024-08-21 20:53:48.477 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
-2024-08-21 20:53:48.478 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
-2024-08-21 20:53:48.479 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
-2024-08-21 20:53:48.480 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$gaDcOWlZTgHL6njkwOdVhuJhSV68zqnFHSw2gRV3qvUka7CUySfxa]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:48.481 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
-2024-08-21 20:53:48.556 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
-2024-08-21 20:53:48.557 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
-2024-08-21 20:53:48.557 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
-2024-08-21 20:53:48.558 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
-2024-08-21 20:53:48.558 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$gaDcOWlZTgHL6njkwOdVhuJhSV68zqnFHSw2gRV3qvUka7CUySfxa]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:53:48.559 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
-2024-08-21 20:54:00.158 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
-2024-08-21 20:54:00.159 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
-2024-08-21 20:54:00.159 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
-2024-08-21 20:54:00.160 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
-2024-08-21 20:54:00.160 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:54:00.160 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
-2024-08-21 20:54:00.160 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
-2024-08-21 20:54:00.161 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$gaDcOWlZTgHL6njkwOdVhuJhSV68zqnFHSw2gRV3qvUka7CUySfxa]
-2024-08-21 20:54:00.161 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
-2024-08-21 20:54:00.161 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-21T20:53:42.393055]
-2024-08-21 20:54:00.161 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
+2024-08-22 16:33:24.080 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-22 16:33:24.128 [main] INFO  com.vti.kshop.KShopApplication - Starting KShopApplication using Java 22.0.2 with PID 13576 (D:\VTI\Railway85\Java Advanced\spring_framework\target\classes started by HOME in D:\VTI\Railway85\Java Advanced\spring_framework)
+2024-08-22 16:33:24.133 [main] INFO  com.vti.kshop.KShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-22 16:33:25.338 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-22 16:33:25.408 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 3 JPA repository interfaces.
+2024-08-22 16:33:26.076 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-22 16:33:26.093 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-08-22 16:33:26.096 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-22 16:33:26.097 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-22 16:33:26.166 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-22 16:33:26.168 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1989 ms
+2024-08-22 16:33:26.352 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-22 16:33:26.429 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-22 16:33:26.471 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-22 16:33:26.776 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-22 16:33:26.801 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-22 16:33:27.163 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cb662e8
+2024-08-22 16:33:27.165 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-22 16:33:28.007 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-22 16:33:28.022 [main] DEBUG org.hibernate.SQL - alter table accessory drop foreign key FK38r75kgl2h9x7fcfwd604v7el
+2024-08-22 16:33:28.034 [main] DEBUG org.hibernate.SQL - drop table if exists accessory
+2024-08-22 16:33:28.040 [main] DEBUG org.hibernate.SQL - drop table if exists car
+2024-08-22 16:33:28.044 [main] DEBUG org.hibernate.SQL - drop table if exists `user`
+2024-08-22 16:33:28.055 [main] DEBUG org.hibernate.SQL - create table accessory (repair_date date not null, id bigint not null auto_increment, price bigint not null, license_plate varchar(10) not null, name varchar(50) not null, repair_status varchar(50) not null, status_damaged varchar(50) not null, primary key (id)) engine=InnoDB
+2024-08-22 16:33:28.063 [main] DEBUG org.hibernate.SQL - create table car (repair_date date not null, id bigint not null auto_increment, license_plate varchar(10) not null, car_maker varchar(50) not null, catalog varchar(50) not null, customer_name varchar(50) not null, primary key (id)) engine=InnoDB
+2024-08-22 16:33:28.072 [main] DEBUG org.hibernate.SQL - create table `user` (created_at datetime(6) not null, id bigint not null auto_increment, updated_at datetime(6) not null, email varchar(50) not null, name varchar(50) not null, username varchar(50) not null, password varchar(100) not null, role enum ('ADMIN','EMPLOYEE','MANAGER') not null, primary key (id)) engine=InnoDB
+2024-08-22 16:33:28.083 [main] DEBUG org.hibernate.SQL - alter table car add constraint UKax84150jtj5n6kwkebpgr4oxk unique (license_plate, repair_date)
+2024-08-22 16:33:28.093 [main] DEBUG org.hibernate.SQL - alter table `user` add constraint UKhl4ga9r00rh51mdaf20hmnslt unique (email)
+2024-08-22 16:33:28.101 [main] DEBUG org.hibernate.SQL - alter table `user` add constraint UK5c856itaihtmi69ni04cmpc4m unique (username)
+2024-08-22 16:33:28.121 [main] DEBUG org.hibernate.SQL - alter table accessory add constraint FK38r75kgl2h9x7fcfwd604v7el foreign key (license_plate, repair_date) references car(license_plate, repair_date) on update cascade on delete cascade
+2024-08-22 16:33:28.152 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-22 16:33:28.770 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-22 16:33:28.888 [main] INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2024-08-22 16:33:29.549 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-08-22 16:33:29.564 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-22 16:33:29.573 [main] INFO  com.vti.kshop.KShopApplication - Started KShopApplication in 5.86 seconds (process running for 7.026)
+2024-08-22 16:33:44.338 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-22 16:33:44.339 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-22 16:33:44.340 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-22 16:33:57.660 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:33:57.665 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:33:57.665 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:01.684 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:01.685 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:01.685 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:09.923 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:09.925 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:09.925 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:38.199 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - insert into `user` (created_at,email,name,password,role,updated_at,username) values (?,?,?,?,?,?,?)
+2024-08-22 16:34:38.202 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:TIMESTAMP) <- [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:38.202 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [anan@gmail.com]
+2024-08-22 16:34:38.203 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [Phạm Gia Ân]
+2024-08-22 16:34:38.203 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [$2a$10$qLR39XDIJm6p1zsKzV6XB.VEZz6xAaberiyWWUKg8Nq1x.5iIr.8.]
+2024-08-22 16:34:38.203 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:ENUM) <- [EMPLOYEE]
+2024-08-22 16:34:38.203 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:38.203 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [an2505]
+2024-08-22 16:34:38.221 [http-nio-8080-exec-9] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-22 16:34:42.132 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:42.133 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:42.133 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:42.133 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-22 16:34:42.136 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:42.136 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
+2024-08-22 16:34:42.136 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
+2024-08-22 16:34:42.137 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$qLR39XDIJm6p1zsKzV6XB.VEZz6xAaberiyWWUKg8Nq1x.5iIr.8.]
+2024-08-22 16:34:42.137 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
+2024-08-22 16:34:42.137 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:42.137 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
+2024-08-22 16:34:42.205 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:42.206 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:42.206 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:42.206 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$qLR39XDIJm6p1zsKzV6XB.VEZz6xAaberiyWWUKg8Nq1x.5iIr.8.]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
+2024-08-22 16:34:42.207 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:42.208 [http-nio-8080-exec-10] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
+2024-08-22 16:34:54.804 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:54.805 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:54.805 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:54.805 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$qLR39XDIJm6p1zsKzV6XB.VEZz6xAaberiyWWUKg8Nq1x.5iIr.8.]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:54.806 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
+2024-08-22 16:34:54.867 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from `user` u1_0 where u1_0.username=? or u1_0.email=?
+2024-08-22 16:34:54.868 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [an2505]
+2024-08-22 16:34:54.868 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [an2505]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (1:BIGINT) -> [1]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (2:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (3:VARCHAR) -> [anan@gmail.com]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (4:VARCHAR) -> [Phạm Gia Ân]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (5:VARCHAR) -> [$2a$10$qLR39XDIJm6p1zsKzV6XB.VEZz6xAaberiyWWUKg8Nq1x.5iIr.8.]
+2024-08-22 16:34:54.869 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (6:ENUM) -> [EMPLOYEE]
+2024-08-22 16:34:54.870 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (7:TIMESTAMP) -> [2024-08-22T16:34:38.193298]
+2024-08-22 16:34:54.870 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.extract - extracted value (8:VARCHAR) -> [an2505]
+2024-08-22 16:35:10.236 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-22 16:35:10.238 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-22 16:35:10.247 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
