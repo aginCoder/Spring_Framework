@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 description = "KShop REST APIs Documentation",
                 termsOfService = "https://github.com/aginCoder/Spring_Framework/tree/kshop",
                 contact = @Contact(
-                        name = "Nguyễn Văn Khoa",
+                        name = "Phạm Gia Ân",
                         url = "https://github.com/aginCoder",
                         email = "anpg25@gmail.com"
                 ),
